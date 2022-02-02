@@ -1,7 +1,6 @@
 # Reverse-shell
-Linux Revers shell... work in progress 
-in order to make this an .exe file use the progaram "pyinstaller"
-Inorder to make this program run on a desired windos micine use pyinstall to crate an exicutible file. optionaly use pyinstalls iminge code imbedder inorder to make the exicutible look like a png.
+Linux Reverse shell... work in progress
+in order to make this a .exe file using the program "pyinstaller" In order to make this program run on a desired windows machine use py install to create an executable file. optionally use pyinstaller impinge code imbedder in order to make the executable look like a png.
 
 request ctypes and mss
 
